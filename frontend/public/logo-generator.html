@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E-Library Logo Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    canvas { border: 1px solid #ddd; margin: 10px 0; }
+    .buttons { margin: 20px 0; }
+    button { padding: 10px 15px; margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>E-Library Logo Generator</h1>
+  
+  <div>
+    <canvas id="logo192" width="192" height="192"></canvas>
+    <canvas id="logo512" width="512" height="512"></canvas>
+  </div>
+  
+  <div class="buttons">
+    <button onclick="downloadLogo(192)">Download Logo 192px</button>
+    <button onclick="downloadLogo(512)">Download Logo 512px</button>
+  </div>
+  
+  <script>
+    function drawLogo(size) {
+      const canvas = document.getElementById(`logo${size}`);
+      const ctx = canvas.getContext('2d');
+      
+      // Background
+      ctx.fillStyle = '#4361ee';
+      ctx.fillRect(0, 0, size, size);
+      
+      // Book shape
+      ctx.fillStyle = '#ffffff';
+      const bookWidth = size * 0.6;
+      const bookHeight = size * 0.5;
+      const offsetX = (size - bookWidth) / 2;
+      const offsetY = (size - bookHeight) / 2;
+      
+      // Book cover
+      ctx.fillRect(offsetX, offsetY, bookWidth, bookHeight);
+      
+      // Book spine
+      ctx.fillStyle = '#3f37c9';
+      ctx.fillRect(offsetX, offsetY, bookWidth * 0.15, bookHeight);
+      
+      // Text "E" for E-Library
+      ctx.fillStyle = '#3f37c9';
+      ctx.font = `bold ${size * 0.35}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('E', size / 2 + size * 0.05, size / 2);
+    }
+    
+    function downloadLogo(size) {
+      const canvas = document.getElementById(`logo${size}`);
+      const link = document.createElement('a');
+      link.download = `logo${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+    
+    // Draw logos on page load
+    window.onload = function() {
+      drawLogo(192);
+      drawLogo(512);
+    };
+  </script>
+</body>
+</html> 

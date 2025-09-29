@@ -1,0 +1,1503 @@
+:root {
+  /* Light theme (default) */
+  --primary-color: #6a5acd;
+  --secondary-color: #4b0082;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #353434;
+  --text-secondary: #6c757d;
+  --text-light: hsl(257, 28%, 95%);
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+  --input-text: #333333;
+  
+  /* Font family variables */
+  --font-heading: 'Bree Serif', serif;
+  --font-main: 'Inter', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+
+  /* Transition for theme changes */
+  --theme-transition: all 0.3s ease;
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --primary-color: #FFB347;
+  --secondary-color: #FF7F50;
+  --light-color: #FAF0E6;
+  --dark-color: #2E1F27;
+  
+  --bg-primary: #2E1F27;
+  --bg-secondary: #918A91;
+  --text-primary: #FAF0E6;
+  --text-secondary: #D8A7B1;
+  --border-color: #918A91;
+  --card-bg: #3D2932;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --input-bg: #3D2932;
+  --input-text: #FAF0E6;
+  --danger-hover: #E97451;
+  --link-color: #D4AF37;
+  --highlight-color: #FFB347;
+  --support-accent: #FFDAB9;
+  --dark-bg-secondary: #918A91;
+  --dark-border: #918A91;
+  --dark-card-bg: #3D2932;
+  --dark-text: #FAF0E6;
+  --dark-hover: #E97451;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: var(--theme-transition);
+}
+
+body {
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.lead {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Dark theme link overrides */
+.dark a, [data-theme='dark'] a {
+  color: var(--link-color);
+}
+
+.dark a:hover, [data-theme='dark'] a:hover {
+  color: var(--primary-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.btn {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+}
+
+.card {
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.card-body {
+  color: var(--text-primary);
+}
+
+.card-text {
+  color: var(--text-secondary) !important;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+}
+
+.book-cover {
+  height: 250px;
+  object-fit: cover;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.sidebar {
+  min-height: calc(100vh - 56px);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding-top: 1rem;
+  border-right: 1px solid var(--border-color);
+}
+
+.rating span {
+  color: #f8e825;
+}
+
+.review {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-label {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--border-color);
+}
+
+.form-control:focus {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+.footer {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.navbar {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  font-family: var(--font-secondary);
+  color: var(--text-primary) !important;
+}
+
+.dropdown-menu {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.dropdown-item {
+  color: var(--text-primary);
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+.table {
+  color: var(--text-primary);
+}
+
+.badge {
+  font-family: var(--font-secondary);
+}
+
+/* Theme toggle switch */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.slider .icon {
+  position: absolute;
+  top: 6px;
+}
+
+.slider .moon {
+  left: 8px;
+  color: #fff;
+  opacity: 0;
+}
+
+.slider .sun {
+  right: 8px;
+  color: #fff;
+  opacity: 1;
+}
+
+input:checked + .slider .moon {
+  opacity: 1;
+}
+
+input:checked + .slider .sun {
+  opacity: 0;
+}
+
+/* Enhanced PDF Reader styles for eye comfort */
+.pdf-reader-container {
+  padding: 20px;
+  border-radius: 8px;
+  transition: var(--theme-transition);
+}
+
+.dark-reader {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.light-reader {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-reader {
+  width: 100%;
+  height: 80vh;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.pdf-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.pdf-page-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-reader-page {
+  padding: 20px;
+  border-radius: 10px;
+  transition: var(--theme-transition);
+}
+
+.reader-dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.reader-light {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Reading comfort adjustments */
+.reader-dark .pdf-controls {
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reader-light .pdf-controls {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust transitions for smoother theme changes */
+.pdf-reader, .pdf-controls, .book-reader-page {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Apply proper color to text elements inside the reader page */
+.book-reader-page h2, 
+.book-reader-page span,
+.book-reader-page .btn {
+  transition: var(--theme-transition);
+}
+
+.reader-dark h2 {
+  color: #e0e0e0;
+}
+
+.reader-dark .text-muted {
+  color: #b0b0b0 !important;
+}
+
+@media (max-width: 768px) {
+  .book-cover {
+    height: 200px;
+  }
+}
+
+/* Main content area theme styles */
+.main-dark {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: calc(100vh - 120px);
+}
+
+.main-light {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: calc(100vh - 120px);
+}
+
+/* Ensure all page content transitions smoothly */
+.container {
+  transition: var(--theme-transition);
+}
+
+/* Make sure all form elements respect theme */
+input, select, textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Ensure that Bootstrap components respect the theme */
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.list-group-item {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Additional eye comfort for reading areas */
+.book-description {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+[data-theme='dark'] .book-description {
+  font-weight: 300;
+}
+
+/* Search input placeholder styles */
+.search-input::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+/* Dark theme adjustments for input placeholders */
+[data-theme='dark'] .search-input::placeholder {
+  color: #8a8a8a !important;
+}
+
+/* Profile page styles */
+.profile-page {
+  padding: 20px 0;
+}
+
+.profile-dark {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.profile-light {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.profile-sidebar {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.profile-image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.profile-image {
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+}
+
+.profile-image-edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.profile-image-edit .btn {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.profile-stats .stat-item {
+  text-align: center;
+  padding: 10px;
+}
+
+.profile-stats h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: var(--primary-color);
+}
+
+.profile-stats p {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+/* Favorite books styling */
+.favorite-book-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.favorite-book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-book-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.remove-favorite {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Profile completion */
+.profile-completion {
+  padding: 10px 0;
+}
+
+.profile-completion p {
+  font-size: 0.9rem;
+}
+
+/* Reader Page Styles */
+.reader-page {
+  position: relative;
+}
+
+.reader-page .progress-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.reader-page .pdf-container {
+  overflow: hidden;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.reader-page .pdf-container iframe {
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.reader-page .reader-controls {
+  user-select: none;
+}
+
+.reader-page .reader-controls .page-indicator input {
+  text-align: center;
+  font-weight: bold;
+}
+
+.reader-page .zoom-controls {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Fix button interactions to prevent glitches */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+/* Improve navigation interactions */
+a, .btn, button {
+  touch-action: manipulation;
+}
+
+/* Light/Dark theme transitions */
+body, .navbar, .card, .form-control, .btn, a {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Prevent text selection on interactive elements */
+button, a, .btn, .nav-link {
+  user-select: none;
+}
+
+/* Profile Page Dark Theme Styles */
+.profile-dark .card {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+  color: var(--text-primary);
+}
+
+.profile-dark .form-control {
+  background-color: var(--input-bg);
+  border-color: var(--dark-border);
+  color: var(--text-primary);
+}
+
+.profile-dark .form-control:focus {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+}
+
+.profile-dark .form-label,
+.profile-dark .form-text,
+.profile-dark h1,
+.profile-dark h2,
+.profile-dark h3,
+.profile-dark h4,
+.profile-dark h5,
+.profile-dark p,
+.profile-dark .text-muted {
+  color: var(--text-primary) !important;
+}
+
+.profile-dark .card-header,
+.profile-dark .card-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--dark-border);
+}
+
+.profile-dark .nav-tabs {
+  border-color: var(--border-dark);
+}
+
+.profile-dark .nav-tabs .nav-link {
+  color: var(--text-dark);
+}
+
+.profile-dark .nav-tabs .nav-link:hover {
+  border-color: var(--border-dark);
+}
+
+.profile-dark .nav-tabs .nav-link.active {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
+  border-bottom-color: var(--card-dark);
+  color: var(--primary);
+}
+
+.profile-dark .favorite-book-card {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
+}
+
+.profile-dark .favorite-book-card .text-muted {
+  color: #adb5bd !important;
+}
+
+.profile-dark table {
+  color: var(--text-dark);
+}
+
+.profile-dark .table-striped>tbody>tr:nth-of-type(odd)>* {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-dark);
+}
+
+.profile-dark .table {
+  border-color: var(--border-dark);
+}
+
+/* Search Dropdown Styles */
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-results-dropdown {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.search-result-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.search-result-dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991.98px) {
+  .search-container {
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .navbar-collapse {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .theme-switch-wrapper {
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-results-dropdown {
+    width: 100%;
+  }
+
+  /* Style for the search icon button next to toggle */
+  .navbar .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  /* Create consistent spacing */
+  .navbar .d-flex.align-items-center {
+    margin-left: auto;
+  }
+}
+
+/* Animation for dropdown */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bootstrap 5 fixes for navbar */
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.dropdown-menu {
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* Dark mode adjustments for dropdowns */
+.dropdown-menu-dark {
+  background-color: var(--dark-bg-secondary);
+  border-color: var(--dark-border);
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+  background-color: var(--dark-hover);
+}
+
+/* Custom Search Input Styling */
+.search-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: #86b7fe;
+}
+
+/* Modal dark theme styling */
+.dark-modal .modal-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark-modal .modal-header,
+.dark-modal .modal-footer {
+  border-color: var(--border-color);
+}
+
+.dark-modal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Search Modal Result Items */
+.search-results-in-modal {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-results-in-modal .search-result-item:hover {
+  background-color: var(--bg-secondary);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+/* Improve search icon positioning for mobile */
+@media (max-width: 991.98px) {
+  .navbar .container {
+    position: relative;
+  }
+  
+  .navbar-brand {
+    flex-grow: 1;
+  }
+  
+  .navbar-toggler {
+    order: 3;
+  }
+}
+
+/* Notification Center Styles */
+.unread-notification {
+  font-weight: 500;
+  position: relative;
+}
+
+.notification-date-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.notification-actions .btn-link {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.notification-actions .btn-link.text-danger:hover {
+  color: var(--danger-hover) !important;
+}
+
+.profile-dark .list-group-item-dark {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+
+/* Dark Mode Notification Styles */
+.dark .notification-date-header {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .list-group-item-dark {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+
+.dark .list-group-item-dark:hover {
+  background-color: var(--dark-hover);
+}
+
+.dark .offcanvas-header {
+  border-bottom: 1px solid #444;
+}
+
+.dark .notification-actions {
+  border-bottom-color: #444 !important;
+}
+
+.dark .tab-content {
+  background-color: #2d2d2d;
+}
+
+.dark .nav-tabs .nav-link {
+  color: var(--text-secondary);
+}
+
+.dark .nav-tabs .nav-link.active {
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+  border-color: var(--dark-border) var(--dark-border) var(--dark-card-bg);
+}
+
+.dark .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.dark .form-check-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(255, 179, 71, 0.25);
+}
+
+.dark .form-check-label {
+  color: var(--text-primary);
+}
+
+/* Added text-light-muted class for better dark mode readability */
+.text-light-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Custom notification item styling */
+.notification-item {
+  transition: background-color 0.15s ease-in-out;
+}
+
+.notification-item:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark .notification-item:hover {
+  background-color: rgba(255, 180, 71, 0.15) !important;
+}
+
+/* Social Panel Styles */
+.book-social-panel {
+  padding: 1rem;
+}
+
+.comment-actions button {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.comment-actions button:hover {
+  opacity: 1;
+}
+
+.replies {
+  border-left: 2px solid #dee2e6;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+.dark-theme .replies {
+  border-left-color: #444;
+}
+
+.avatar, .avatar-sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.no-arrow::after {
+  display: none !important;
+}
+
+/* Bookmark Panel Styles */
+.code-font {
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dark-modal .modal-content {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.dark-modal .modal-header, 
+.dark-modal .modal-footer {
+  border-color: #495057;
+}
+
+.dark-modal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.badge.bg-purple {
+  background-color: #6f42c1 !important;
+}
+
+/* Additional Dark Theme Styles */
+.dark .accordion-button {
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+}
+
+.dark .accordion-button:not(.collapsed) {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark .accordion-body {
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+}
+
+.dark .card {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+}
+
+.dark .list-group-item {
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+  border-color: var(--dark-border);
+}
+
+.dark .list-group-item-action:hover {
+  background-color: var(--dark-hover);
+}
+
+.dark .form-control {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-color: var(--dark-border);
+}
+
+.dark .form-select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-color: var(--dark-border);
+}
+
+.dark .tab-content {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+}
+
+/* Book Reader Styles */
+.reader-content {
+  background-color: #fff;
+  color: #333;
+}
+
+.dark-reader {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.book-content-container {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.dark-reader .book-content-container {
+  border-color: var(--dark-border);
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+}
+
+.highlight-warning {
+  background-color: rgba(255, 179, 71, 0.3);
+}
+
+.highlight-success {
+  background-color: rgba(255, 127, 80, 0.3);
+}
+
+.highlight-primary {
+  background-color: rgba(212, 175, 55, 0.3);
+}
+
+.highlight-danger {
+  background-color: rgba(233, 116, 81, 0.3);
+}
+
+.highlight-info {
+  background-color: rgba(255, 218, 185, 0.3);
+}
+
+.highlight-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookmark-control {
+  display: inline-flex;
+  align-items: center;
+}
+
+.progress-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  animation: fadeInOut 2s ease;
+  width: auto;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.dark-reader .page-controls .form-control {
+  background-color: #444;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-reader .book-content h2, .dark-reader .book-content h3, .dark-reader .book-content h4 {
+  color: #fff;
+}
+
+/* Reader page keyboard navigation help */
+.reader-keyboard-help {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.dark-reader .reader-keyboard-help {
+  background-color: rgba(255, 179, 71, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+.key-hint {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 5px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.dark-reader .key-hint {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+  color: var(--text-primary);
+}
+
+/* Chatbot typing indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: #888;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  opacity: 0.4;
+  animation: typing 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Chat message styles */
+.chat-message-user {
+  background-color: var(--bs-primary);
+  color: white;
+  border-radius: 1rem 1rem 0.25rem 1rem; 
+}
+
+.chat-message-bot {
+  background-color: #f1f1f1;
+  border-radius: 1rem 1rem 1rem 0.25rem;
+  color: #333;
+}
+
+.dark .chat-message-bot,
+[data-theme='dark'] .chat-message-bot {
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+}
+
+.dark .chat-message-bot .text-muted,
+[data-theme='dark'] .chat-message-bot .text-muted {
+  color: #d0d0d0 !important;
+}
+
+/* Scrollbar styles for chat */
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark .chat-scroll::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.dark .chat-scroll::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+}
+
+/* Floating chat button */
+.floating-chat-btn {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulseRight 2s infinite;
+  transition: all 0.3s ease;
+  z-index: 1050;
+}
+
+.floating-chat-btn i {
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.floating-chat-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.floating-chat-btn[data-side="right"] {
+  animation: pulseRight 2s infinite;
+}
+
+.floating-chat-btn[data-side="left"] {
+  animation: pulseLeft 2s infinite;
+}
+
+/* Mobile specific styles */
+.floating-chat-mobile {
+  width: 48px !important;
+  height: 48px !important;
+  opacity: 0.9;
+}
+
+.floating-chat-mobile i {
+  font-size: 18px;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .page-header {
+    margin-bottom: 1.25rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  .book-cover {
+    height: 180px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .btn {
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .floating-chat-btn {
+    width: 48px;
+    height: 48px;
+    right: 16px;
+    bottom: 16px;
+  }
+  
+  .floating-chat-btn i {
+    font-size: 18px;
+  }
+  
+  /* BookmarkPanel improvements for mobile */
+  .offcanvas {
+    width: 85% !important;
+  }
+  
+  /* Better touch targets for mobile */
+  .nav-link, .dropdown-item, .list-group-item, button {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  /* Tabs for mobile */
+  .nav-tabs .nav-link {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 576px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .offcanvas {
+    width: 100% !important;
+  }
+  
+  .floating-chat-btn {
+    width: 42px;
+    height: 42px;
+    right: 12px;
+    bottom: 12px;
+  }
+  
+  .floating-chat-btn i {
+    font-size: 16px;
+  }
+}
+
+/* Notification Panel Dark Theme Improvements */
+.dark .offcanvas {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark .offcanvas-header {
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.dark .notification-actions {
+  border-bottom-color: var(--dark-border) !important;
+}
+
+.dark .badge {
+  background-color: var(--secondary-color) !important;
+}
+
+.dark .btn-link {
+  color: var(--link-color);
+}
+
+.dark .btn-link:hover {
+  color: var(--primary-color);
+}
+
+.dark .btn-link.text-danger:hover {
+  color: var(--danger-hover) !important;
+}
+
+/* Footer Dark Theme Improvements */
+.dark .footer, [data-theme='dark'] .footer {
+  background-color: var(--dark-card-bg);
+  color: var(--text-primary);
+  border-top: 1px solid var(--dark-border);
+}
+
+.dark .footer a, [data-theme='dark'] .footer a {
+  color: var(--link-color);
+}
+
+.dark .footer a:hover, [data-theme='dark'] .footer a:hover {
+  color: var(--primary-color);
+}
+
+.dark .footer .text-muted, [data-theme='dark'] .footer .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Email notification preferences switches in dark mode */
+.dark .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.dark .form-check-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(255, 179, 71, 0.25);
+}
+
+.dark .form-check-label {
+  color: var(--text-primary);
+}
+
+/* Fix text-muted color in dark mode notifications */
+.dark .tab-pane .text-muted {
+  color: var(--text-secondary) !important;
+}
